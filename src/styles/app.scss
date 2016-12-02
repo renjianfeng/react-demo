@@ -1,0 +1,61 @@
+@import "diudian";
+@import "common";
+body{
+    background: #eaeaea;
+}
+#app {
+    font-family: "微软雅黑";
+    .title {
+        font-size: 25px;
+        text-align: center;
+        background: $color2;
+        padding: 10px;
+        margin: 0px;
+        color: #fff;
+    }
+    .tip-box{
+        background: #fff;
+        .top-tip{
+            display: inline-block;
+            border-radius: 5px;
+            padding: 7px 10px;
+            a{
+                color: #444;
+            }
+            margin-right: 10px;
+        }
+    }
+    .cention{
+        animation:0.5s ddd;
+        opacity: 1;
+        margin: 10px;
+        filter: blur(0px);
+        background: #fff;
+        padding: 10px;
+        .list-box{
+            padding: 0px;
+            border:0px;
+            li{
+                list-style: none;
+                height: 10vw;
+                line-height: 10vw;
+                border-top: 1px solid #ccc;
+                margin-top: 1vw;
+                padding: 0 10px;
+            }
+        }
+
+    }
+    @keyframes ddd {
+        0%{
+            opacity: 0;
+            transform: scale(1.2,1.2);
+            filter: blur(3px);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1,1);
+            filter: blur(0px);
+        }
+    }
+}

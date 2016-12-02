@@ -1,0 +1,64 @@
+//顶部导航选中颜色
+$color1:#009553;
+
+//tab选项卡边线颜色
+$color2:#00af62;
+
+//bad9cc
+$color4:#bad9cc;
+
+//线条颜色
+$color3:#ccc;
+
+//绿色颜色5
+$color5:#8fd163;
+
+$headHeight:45px;
+$trTime:0.5s;
+
+@mixin transtionFrom($time:0.5s){
+  -webkit-transition:$time all;
+  -o-transition:$time all;
+  transition:$time all;
+}
+@mixin transtionOpacity($time:0.5s){
+  -webkit-transition:$time opacity;
+  -o-transition:$time opacity;
+  transition:$time opacity;
+}
+
+@mixin ico_map_set($widthheight:30px){
+  display: inline-block;
+  width: $widthheight;
+  height: $widthheight;
+  background-image: url("../../common/image/css_map/user_map.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+@mixin ico_map_set2($width:30px,$height:30px){
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background-image: url("../../common/image/css_map/user_map.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+@mixin ico_map_set3($width:30px,$height:30px){
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background-image: url("../../common/image/css_map/css_map_ud.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+@mixin bgload($scolor1,$scolor2){
+  background-color: $scolor2;
+  background-image: linear-gradient(180deg,$scolor1 0%,$scolor2 100%);
+}
+
+@mixin textWidthCheck(){
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  white-space:nowrap;width:100%;
+}
