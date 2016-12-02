@@ -3,6 +3,7 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
+import $ from 'jquery';
 
 import { Router, Route, hashHistory ,Link } from 'react-router';
 
@@ -25,6 +26,7 @@ var App = React.createClass({
                 <div className="tip-box">
                     <span className="top-tip"><a href="#/list">列表页面</a></span>
                     <span className="top-tip"><a href="#/detail">详情详情</a></span>
+                    <span className="top-tip"><a href="#/UserGist">ajax</a></span>
                 </div>
                 <div className="cention">
                     <ul className="list-box">
@@ -89,6 +91,39 @@ var Show = React.createClass({
     }
 });
 
+//ajax
+var UserGist = React.createClass({
+    getInitialState: function() {
+        return {
+            username: '',
+            lastGistUrl: ''
+        };
+    },
+
+    componentDidMount: function() {
+        $.get("http://localhost:8080/react/data/test.json", function(result) {
+            var lastGist = result[0];
+            if (this.isMounted()) {
+                this.setState({
+                    username: lastGist.titlename,
+                    lastGistUrl: lastGist.cention
+                });
+            }
+        }.bind(this));
+    },
+
+    render: function() {
+        return (
+                <div>
+                    <div>标题：{this.state.username}</div>
+                    <div>内容：{this.state.lastGistUrl}</div>
+                </div>
+        );
+    }
+});
+
+
+
 //最终渲染
 ReactDom.render((
     <Router history={hashHistory}>
@@ -96,5 +131,6 @@ ReactDom.render((
         <Route path='/list' component={List} />
         <Route path='/detail' component={Detail} />
         <Route name="show" path="/show/:id" component={Show} />
+        <Route path="/UserGist"  component={UserGist} />
     </Router>
 ), document.getElementById('app'));

@@ -1,3 +1,6 @@
-{
-    "text": "hello, yeoman !"
-}
+[
+    {
+        "titlename": "标题测试",
+        "cention":"内容测试"
+    }
+]
